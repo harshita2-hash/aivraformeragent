@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Market | Mandi-Agent 2.0</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <div class="logo">MANDI-AGENT <span style="font-weight: 300;">GLOBAL MARKET</span></div>
+            <div class="status-pills">
+                <div class="pill active"><i class="fas fa-globe-americas"></i> Global Nodes: Online</div>
+                <div class="pill"><i class="fas fa-network-wired"></i> P2P Mesh Active</div>
+            </div>
+            <div class="user-profile" style="display: flex; gap: 15px; align-items: center;">
+                <a href="dashboard.html" class="btn" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 8px 15px; font-size: 0.8rem; color: white; text-decoration: none; border-radius: 10px;">
+                    <i class="fas fa-th-large"></i> Dashboard
+                </a>
+                <a href="index.html" class="btn" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 8px 15px; font-size: 0.8rem; color: var(--text-muted); text-decoration: none; border-radius: 10px;">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </div>
+        </header>
+
+        <main style="grid-column: span 12; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px;">
+            <!-- London Hub -->
+            <div class="glass-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h2><i class="fas fa-city"></i> London Hub</h2>
+                    <span class="pill active">OPEN</span>
+                </div>
+                <div style="font-size: 0.85rem; color: var(--text-muted);">
+                    <p>Current Demand: <span style="color: white;">Wheat, Soy</span></p>
+                    <p>Price Index: <span style="color: var(--accent-farmer);">+2.4% vs Local</span></p>
+                    <p>Logistics: 124 Agents Active</p>
+                </div>
+                <button class="btn btn-primary" style="width: 100%; margin-top: 20px;">Bridge Goods</button>
+            </div>
+
+            <!-- Dubai Hub -->
+            <div class="glass-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h2><i class="fas fa-mosque"></i> Dubai Hub</h2>
+                    <span class="pill active">OPEN</span>
+                </div>
+                <div style="font-size: 0.85rem; color: var(--text-muted);">
+                    <p>Current Demand: <span style="color: white;">Rice, Spices</span></p>
+                    <p>Price Index: <span style="color: var(--accent-farmer);">+4.1% vs Local</span></p>
+                    <p>Logistics: 89 Agents Active</p>
+                </div>
+                <button class="btn btn-primary" style="width: 100%; margin-top: 20px;">Bridge Goods</button>
+            </div>
+
+            <!-- Singapore Hub -->
+            <div class="glass-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h2><i class="fas fa-anchor"></i> Singapore Hub</h2>
+                    <span class="pill active">OPEN</span>
+                </div>
+                <div style="font-size: 0.85rem; color: var(--text-muted);">
+                    <p>Current Demand: <span style="color: white;">Corn, Pulses</span></p>
+                    <p>Price Index: <span style="color: var(--accent-farmer);">+1.8% vs Local</span></p>
+                    <p>Logistics: 210 Agents Active</p>
+                </div>
+                <button class="btn btn-primary" style="width: 100%; margin-top: 20px;">Bridge Goods</button>
+            </div>
+        </main>
+
+        <div style="grid-column: span 12; margin-top: 20px;">
+            <div class="glass-card">
+                <h2><i class="fas fa-project-diagram"></i> Autonomous Dealer Network</h2>
+                <div style="height: 300px; background: rgba(0,0,0,0.3); border-radius: 20px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                    <div style="position: absolute; width: 100%; height: 100%; background: radial-gradient(circle at center, rgba(0,210,255,0.1) 0%, transparent 70%);"></div>
+                    <!-- Simulated Global Network Map -->
+                    <svg width="100%" height="100%" viewBox="0 0 800 400" style="position: absolute;">
+                        <circle cx="400" cy="200" r="10" fill="var(--accent-primary)" /> <!-- Local -->
+                        <circle cx="200" cy="150" r="5" fill="var(--accent-farmer)" /> <!-- London -->
+                        <circle cx="600" cy="250" r="5" fill="var(--accent-farmer)" /> <!-- Singapore -->
+                        <circle cx="500" cy="150" r="5" fill="var(--accent-farmer)" /> <!-- Dubai -->
+                        
+                        <path d="M400,200 L200,150" stroke="var(--accent-primary)" stroke-width="1" stroke-dasharray="5,5" opacity="0.5">
+                            <animate attributeName="stroke-dashoffset" from="0" to="20" dur="2s" repeatCount="indefinite" />
+                        </path>
+                        <path d="M400,200 L600,250" stroke="var(--accent-primary)" stroke-width="1" stroke-dasharray="5,5" opacity="0.5">
+                            <animate attributeName="stroke-dashoffset" from="0" to="-20" dur="2s" repeatCount="indefinite" />
+                        </path>
+                        <path d="M400,200 L500,150" stroke="var(--accent-primary)" stroke-width="1" stroke-dasharray="5,5" opacity="0.5">
+                            <animate attributeName="stroke-dashoffset" from="0" to="20" dur="2s" repeatCount="indefinite" />
+                        </path>
+                    </svg>
+                    <div style="text-align: center; z-index: 2;">
+                        <p style="font-weight: 800; font-size: 1.2rem; margin-bottom: 10px;">8,402 AI Agents Negotiating Live</p>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">Global price discovery in progress...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <div class="ticker-item">GLOBAL WHEAT: ₹28,400 <span style="color: var(--accent-farmer);">(+3.2%)</span></div>
+            <div class="ticker-item">GLOBAL RICE: ₹72,100 <span style="color: var(--accent-farmer);">(+5.1%)</span></div>
+            <div class="ticker-item">GLOBAL SOY: ₹48,900 <span style="color: var(--accent-farmer);">(+1.4%)</span></div>
+        </div>
+    </div>
+</body>
+</html>

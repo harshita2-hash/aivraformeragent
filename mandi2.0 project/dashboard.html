@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mandi-Agent 2.0 | A2A Market Protocol</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/your-code.js" crossorigin="anonymous"></script> <!-- Placeholder for Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <div class="logo">MANDI-AGENT <span style="font-weight: 300;">2.0</span></div>
+            <div class="status-pills">
+                <div class="pill active"><i class="fas fa-network-wired"></i> A2A Network Active</div>
+                <div class="pill"><i class="fas fa-robot"></i> 14 Autonomous Agents</div>
+                <div class="pill"><i class="fas fa-bolt"></i> Low Latency Node</div>
+            </div>
+            <div class="user-profile" style="display: flex; gap: 15px; align-items: center;">
+                <div class="pill"><i class="fas fa-user-circle"></i> GDG Hackathon Demo</div>
+                <a href="index.html" class="btn" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 8px 15px; font-size: 0.8rem; color: var(--text-muted); text-decoration: none; border-radius: 10px;">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </div>
+        </header>
+
+        <aside class="left-sidebar">
+            <div class="glass-card agent-farmer">
+                <h2><i class="fas fa-tractor" style="color: var(--accent-farmer);"></i> Farmer Agent</h2>
+                <div id="farmer-status">
+                    <p style="color: var(--text-muted); margin-bottom: 15px;">Listing: Premium Basmati Rice</p>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span>Quantity:</span>
+                        <span style="font-weight: 600;">500 Tons</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span>Target Price:</span>
+                        <span style="font-weight: 600; color: var(--accent-farmer);">₹70,550/Ton</span>
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 15px;" id="start-negotiation">
+                        <i class="fas fa-play"></i> Initiate Discovery
+                    </button>
+                </div>
+            </div>
+
+            <div class="glass-card">
+                <h2><i class="fas fa-chart-line"></i> Market Sentiment</h2>
+                <div style="height: 150px; background: rgba(0,0,0,0.2); border-radius: 12px; display: flex; align-items: flex-end; padding: 10px; gap: 5px;">
+                    <!-- Simulated Graph -->
+                    <div class="market-bar" style="flex: 1; background: var(--accent-primary); height: 40%; opacity: 0.5; border-radius: 4px; transition: height 0.5s ease;"></div>
+                    <div class="market-bar" style="flex: 1; background: var(--accent-primary); height: 60%; opacity: 0.7; border-radius: 4px; transition: height 0.5s ease;"></div>
+                    <div class="market-bar" style="flex: 1; background: var(--accent-primary); height: 50%; opacity: 0.6; border-radius: 4px; transition: height 0.5s ease;"></div>
+                    <div class="market-bar" style="flex: 1; background: var(--accent-primary); height: 80%; opacity: 0.9; border-radius: 4px; transition: height 0.5s ease;"></div>
+                    <div class="market-bar" style="flex: 1; background: var(--accent-primary); height: 70%; opacity: 0.8; border-radius: 4px; transition: height 0.5s ease;"></div>
+                </div>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 10px; text-align: center;">Bullish - Supply constraint detected</p>
+            </div>
+
+            <div class="glass-card" style="position: relative; overflow: hidden; min-height: 120px;">
+                <h2><i class="fas fa-project-diagram"></i> A2A Topology</h2>
+                <div style="display: flex; gap: 8px; justify-content: center; margin-top: 10px;">
+                    <div style="width: 12px; height: 12px; background: var(--accent-farmer); border-radius: 50%; box-shadow: 0 0 10px var(--accent-farmer);"></div>
+                    <div style="width: 12px; height: 12px; background: var(--accent-buyer); border-radius: 50%; box-shadow: 0 0 10px var(--accent-buyer);"></div>
+                    <div style="width: 12px; height: 12px; background: var(--accent-primary); border-radius: 50%; box-shadow: 0 0 10px var(--accent-primary);"></div>
+                    <div style="width: 12px; height: 12px; background: var(--accent-logistics); border-radius: 50%; box-shadow: 0 0 10px var(--accent-logistics);"></div>
+                </div>
+                <div class="network-line" style="top: 50%;"></div>
+                <div class="network-line" style="top: 70%; animation-delay: 1.5s;"></div>
+                <p style="font-size: 0.7rem; color: var(--text-muted); text-align: center; margin-top: 15px;">Encrypted P2P Channels: 42</p>
+            </div>
+        </aside>
+
+        <main>
+            <div class="glass-card" style="flex: 1; display: flex; flex-direction: column;">
+                <h2><i class="fas fa-comments"></i> Live Agent Negotiation</h2>
+                <div id="negotiation-chat" style="flex: 1; overflow-y: auto; padding: 10px; display: flex; flex-direction: column; gap: 15px; border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; background: rgba(0,0,0,0.1);">
+                    <!-- Chat messages will appear here -->
+                    <div style="text-align: center; color: var(--text-muted); margin-top: 50px;">
+                        <i class="fas fa-robot fa-3x" style="opacity: 0.2; margin-bottom: 20px;"></i>
+                        <p>Awaiting negotiation sequence initialization...</p>
+                    </div>
+                </div>
+                <div id="negotiation-controls" style="margin-top: 20px; display: none;">
+                    <div style="display: flex; gap: 10px;">
+                        <input type="text" placeholder="Override Agent Command..." style="flex: 1; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); border-radius: 10px; padding: 12px; color: white;">
+                        <button class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card" style="margin-top: 20px; border-left: 4px solid var(--accent-primary);">
+                <h2><i class="fas fa-brain"></i> AI Strategic Insights</h2>
+                <div id="ai-insights" style="font-size: 0.85rem; color: var(--text-muted); font-style: italic;">
+                    Waiting for negotiation data stream...
+                </div>
+            </div>
+        </main>
+
+        <aside class="right-sidebar">
+            <div class="glass-card agent-buyer">
+                <h2><i class="fas fa-building" style="color: var(--accent-buyer);"></i> Buyer Agent</h2>
+                <div id="buyer-status">
+                    <p style="color: var(--text-muted); margin-bottom: 15px;">Entity: Global Food Corp</p>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span>Budget Cap:</span>
+                        <span style="font-weight: 600;">₹74,700/Ton</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span>Urgency:</span>
+                        <span style="font-weight: 600; color: #ff4b2b;">High</span>
+                    </div>
+                    <div class="pill" style="margin-top: 15px; justify-content: center;">Scanning Listings...</div>
+                </div>
+            </div>
+
+            <div class="glass-card agent-logistics">
+                <h2><i class="fas fa-map-marked-alt" style="color: var(--accent-logistics);"></i> Logistics (God Mode)</h2>
+                <div class="radar-map" style="height: 200px; border-radius: 12px; position: relative; overflow: hidden; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.05);">
+                    <div class="radar-sweep"></div>
+                    <!-- Simulated Map Pins -->
+                    <div style="position: absolute; top: 40%; left: 30%; width: 10px; height: 10px; background: var(--accent-logistics); border-radius: 50%; box-shadow: 0 0 15px var(--accent-logistics); z-index: 2;"></div>
+                    <div style="position: absolute; top: 60%; left: 70%; width: 10px; height: 10px; background: var(--accent-primary); border-radius: 50%; box-shadow: 0 0 15px var(--accent-primary); z-index: 2;"></div>
+                    <div style="position: absolute; top: 45%; left: 35%; font-size: 0.6rem; color: var(--accent-logistics);">SHIPMENT #RF-402</div>
+                </div>
+                <button class="btn" style="width: 100%; background: rgba(255, 0, 128, 0.1); border: 1px solid var(--accent-logistics); color: var(--accent-logistics);" id="trigger-emergency">
+                    <i class="fas fa-exclamation-triangle"></i> Simulate Road Block
+                </button>
+            </div>
+
+            <div class="glass-card" style="flex: 1;">
+                <h2><i class="fas fa-history"></i> Recent Transactions</h2>
+                <div class="history-log" style="display: flex; flex-direction: column; gap: 10px;">
+                    <div style="font-size: 0.8rem; padding: 8px; border-bottom: 1px solid var(--glass-border); display: flex; justify-content: space-between;">
+                        <span>Wheat (A-Grade)</span>
+                        <span style="color: var(--accent-farmer); font-weight: 600;">₹26,560/T</span>
+                    </div>
+                    <div style="font-size: 0.8rem; padding: 8px; border-bottom: 1px solid var(--glass-border); display: flex; justify-content: space-between;">
+                        <span>Corn (Bulk)</span>
+                        <span style="color: var(--accent-farmer); font-weight: 600;">₹14,940/T</span>
+                    </div>
+                    <div style="font-size: 0.8rem; padding: 8px; display: flex; justify-content: space-between;">
+                        <span>Soybeans</span>
+                        <span style="color: var(--accent-farmer); font-weight: 600;">₹44,820/T</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <div class="ticker-item">WHEAT: ₹25,900 <span style="color: var(--accent-farmer);">(+1.2%)</span></div>
+            <div class="ticker-item">RICE: ₹68,500 <span style="color: #ff4b2b;">(-0.5%)</span></div>
+            <div class="ticker-item">SOY: ₹45,000 <span style="color: var(--accent-farmer);">(+2.4%)</span></div>
+            <div class="ticker-item">CORN: ₹15,300 <span style="color: var(--accent-farmer);">(+0.8%)</span></div>
+            <div class="ticker-item">BARLEY: ₹17,400 <span style="color: #ff4b2b;">(-1.1%)</span></div>
+            <!-- Duplicate for seamless loop -->
+            <div class="ticker-item">WHEAT: ₹25,900 <span style="color: var(--accent-farmer);">(+1.2%)</span></div>
+            <div class="ticker-item">RICE: ₹68,500 <span style="color: #ff4b2b;">(-0.5%)</span></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

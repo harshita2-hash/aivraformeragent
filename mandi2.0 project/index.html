@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mandi-Agent 2.0 | A2A Market Protocol</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: url('assets/farmer_bg.png') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        body::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%);
+            z-index: -1;
+        }
+
+        .hero-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-section h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+            background: linear-gradient(to right, #00d2ff, #3a7bd5, #00f260);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav {
+            padding: 40px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">MANDI-AGENT <span style="font-weight: 300;">2.0</span></div>
+        <div style="display: flex; gap: 30px;">
+            <a href="login.html" class="btn" style="color: white; text-decoration: none; font-weight: 600;">Sign In</a>
+            <a href="signup.html" class="btn btn-primary">Join Protocol</a>
+        </div>
+    </nav>
+
+    <div class="hero-section">
+        <div class="pill active" style="margin-bottom: 30px; padding: 10px 25px;">
+            <i class="fas fa-sparkles"></i> The Future of Agricultural Trade
+        </div>
+        <h1>Autonomous Market <br> Discovery</h1>
+        <p>Mandi-Agent 2.0 uses autonomous A2A protocols to eliminate middle-men, optimize logistics, and ensure fair price discovery for farmers globally.</p>
+        <div class="cta-group">
+            <a href="signup.html" class="btn btn-primary" style="padding: 18px 40px; font-size: 1.1rem;">
+                Get Started <i class="fas fa-arrow-right" style="margin-left: 10px;"></i>
+            </a>
+            <a href="demo.html" class="btn" style="border: 1px solid var(--glass-border); padding: 18px 40px; color: white; text-decoration: none; backdrop-filter: blur(10px); display: flex; align-items: center; gap: 10px;">
+                <i class="fas fa-play-circle"></i> Watch Protocol Demo
+            </a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logistics Dashboard | Mandi-Agent 2.0</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <div class="logo">MANDI-AGENT <span style="font-weight: 300;">LOGISTICS</span></div>
+            <div class="status-pills">
+                <div class="pill active"><i class="fas fa-truck"></i> Fleet: 14/15 Active</div>
+                <div class="pill"><i class="fas fa-shield-alt"></i> Security: Encrypted</div>
+            </div>
+            <div class="user-profile" style="display: flex; gap: 15px; align-items: center;">
+                <div class="pill"><i class="fas fa-user-circle"></i> Welcome, Logistics Admin</div>
+                <a href="index.html" class="btn" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 8px 15px; font-size: 0.8rem; color: var(--text-muted); text-decoration: none; border-radius: 10px;">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </div>
+        </header>
+
+        <aside class="left-sidebar">
+            <div class="glass-card agent-logistics">
+                <h2><i class="fas fa-satellite-dish" style="color: var(--accent-logistics);"></i> Fleet Control</h2>
+                <div style="font-size: 0.85rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 12px;">
+                    <div style="padding: 10px; background: rgba(255, 0, 128, 0.05); border: 1px solid var(--accent-logistics); border-radius: 10px;">
+                        <span style="font-weight: 600;">TRUCK #TR-881</span><br>
+                        Route: Mandi -> Warehouse B<br>
+                        Status: <span style="color: var(--accent-farmer);">ON TIME</span>
+                    </div>
+                    <div style="padding: 10px; background: rgba(0, 210, 255, 0.05); border: 1px solid var(--accent-primary); border-radius: 10px;">
+                        <span style="font-weight: 600;">TRUCK #TR-402</span><br>
+                        Route: Farm #402 -> Export Port<br>
+                        Status: <span style="color: var(--accent-logistics);">EN ROUTE</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main>
+            <div class="glass-card" style="flex: 1; display: flex; flex-direction: column;">
+                <h2><i class="fas fa-map-marked-alt"></i> Global Supply Chain (God Mode)</h2>
+                <div style="flex: 1; background: #0a0b10; border-radius: 20px; border: 1px solid var(--glass-border); position: relative; overflow: hidden;">
+                    <!-- Simulated Google Map for Logistics -->
+                    <div class="radar-sweep" style="width: 250%; height: 250%; opacity: 0.2;"></div>
+                    <div style="position: absolute; width: 100%; height: 100%; background-image: radial-gradient(var(--glass-border) 1px, transparent 1px); background-size: 40px 40px;"></div>
+                    
+                    <!-- Simulated Map Data -->
+                    <svg style="width: 100%; height: 100%; position: absolute; top: 0; left: 0;">
+                        <path d="M100,100 L300,150 L500,100 L700,250" stroke="var(--accent-primary)" stroke-width="2" fill="none" stroke-dasharray="5,5" />
+                        <circle cx="100" cy="100" r="5" fill="var(--accent-farmer)" />
+                        <circle cx="700" cy="250" r="5" fill="var(--accent-logistics)" />
+                        <rect id="moving-truck" x="0" y="0" width="10" height="6" fill="white">
+                            <animateMotion path="M100,100 L300,150 L500,100 L700,250" dur="20s" repeatCount="indefinite" />
+                        </rect>
+                    </svg>
+
+                    <div style="position: absolute; bottom: 20px; right: 20px; background: rgba(0,0,0,0.7); padding: 15px; border-radius: 12px; border: 1px solid var(--glass-border); backdrop-filter: blur(5px);">
+                        <p style="font-size: 0.8rem; font-weight: 600;">AI Logistics Analysis</p>
+                        <p style="font-size: 0.7rem; color: var(--text-muted);">Optimal route selected via Expressway 7. Fuel savings: 14.2%</p>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 15px; margin-top: 20px;">
+                    <button class="btn" style="flex: 1; background: rgba(255, 0, 128, 0.1); border: 1px solid var(--accent-logistics); color: var(--accent-logistics);" id="trigger-emergency">
+                        <i class="fas fa-road"></i> Simulate Road Block
+                    </button>
+                    <button class="btn btn-primary" style="flex: 1;">
+                        <i class="fas fa-route"></i> Optimize All Routes
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <aside class="right-sidebar">
+            <div class="glass-card">
+                <h2><i class="fas fa-bell"></i> Live Alerts</h2>
+                <div id="negotiation-chat" style="height: 300px; overflow-y: auto; padding: 10px; display: flex; flex-direction: column; gap: 10px; border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; background: rgba(0,0,0,0.1);">
+                    <div style="font-size: 0.75rem; color: var(--text-muted);">[14:20] System: All fleet nodes synchronized.</div>
+                    <div style="font-size: 0.75rem; color: var(--text-muted);">[14:22] TR-402: Commencing pickup at Farm #402.</div>
+                </div>
+            </div>
+
+            <div class="glass-card">
+                <h2><i class="fas fa-gas-pump"></i> Fuel Efficiency</h2>
+                <div style="display: flex; align-items: flex-end; gap: 5px; height: 100px; padding: 10px;">
+                    <div class="market-bar" style="flex: 1; background: var(--accent-logistics); height: 80%; opacity: 0.8; border-radius: 4px;"></div>
+                    <div class="market-bar" style="flex: 1; background: var(--accent-logistics); height: 60%; opacity: 0.8; border-radius: 4px;"></div>
+                    <div class="market-bar" style="flex: 1; background: var(--accent-logistics); height: 90%; opacity: 0.8; border-radius: 4px;"></div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <div class="ticker-item">DIESEL: ₹89.40 <span style="color: var(--accent-logistics);">(+0.2%)</span></div>
+            <div class="ticker-item">PETROL: ₹102.15 <span style="color: var(--accent-farmer);">(-0.4%)</span></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
